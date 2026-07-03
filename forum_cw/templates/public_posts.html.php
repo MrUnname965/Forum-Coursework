@@ -11,16 +11,9 @@
         <?php $display_date = date("D d M Y", strtotime($post['post_date']))?>
         <?=htmlspecialchars($display_date, ENT_QUOTES, 'UTF-8')?><br><br>
 
-        <a href="editpost.php?id=<?=$post['id']?>">Edit</a><br><br>
-
         <img height="100px" src="<?=$imagePath ?? ''?>images/<?=htmlspecialchars($post['image'], ENT_QUOTES, 'UTF-8'); ?>" /><br><br>
 
         (<?=htmlspecialchars($post['module'], ENT_QUOTES, 'UTF-8');?> Module)
 
-
-        <form action="deletepost.php" method="post">
-            <input type="hidden" name="id" value="<?=$post['id']?>">
-            <input type="submit" value="Delete">
-        </form>
     </blockquote>
     <?php endforeach;?>
