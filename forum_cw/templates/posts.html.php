@@ -13,10 +13,10 @@
 
         <a href="editpost.php?id=<?=$post['id']?>">Edit</a><br><br>
 
-        <img height="100px" src="<?=$imagePath ?? ''?>images/<?=htmlspecialchars($post['image'], ENT_QUOTES, 'UTF-8'); ?>" /><br><br>
+        <img height="100px" src="<?=$imagePath ?? ''?>images/<?=htmlspecialchars($post['image'], ENT_QUOTES, 'UTF-8'); ?>"
+        alt="Image uploaded by <?=htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?>" /><br><br>
 
         (<?=htmlspecialchars($post['module'], ENT_QUOTES, 'UTF-8');?> Module)
-
 
         <form action="deletepost.php" method="post">
             <input type="hidden" name="id" value="<?=$post['id']?>">

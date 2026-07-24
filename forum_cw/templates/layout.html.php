@@ -13,7 +13,8 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="posts.php">Posts</a></li>
             <!-- <li><a href="addpost.php">Add a new post</a></li> -->
-            <li><a href="./admin/posts.php">Admin</a></li>
+            <li><a href="contact.php">Contact Admin</a></li>
+            <li><a href="admin/login/login.html">Admin Login</a></li>
         </ul>
     </nav>
     <main>

@@ -11,7 +11,8 @@
         <?php $display_date = date("D d M Y", strtotime($post['post_date']))?>
         <?=htmlspecialchars($display_date, ENT_QUOTES, 'UTF-8')?><br><br>
 
-        <img height="100px" src="<?=$imagePath ?? ''?>images/<?=htmlspecialchars($post['image'], ENT_QUOTES, 'UTF-8'); ?>" /><br><br>
+        <img height="100px" src="<?=$imagePath ?? ''?>images/<?=htmlspecialchars($post['image'], ENT_QUOTES, 'UTF-8'); ?>"
+        alt="Image uploaded by <?=htmlspecialchars($post['name'], ENT_QUOTES, 'UTF-8'); ?>" /><br><br>
 
         (<?=htmlspecialchars($post['module'], ENT_QUOTES, 'UTF-8');?> Module)
 

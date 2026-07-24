@@ -14,8 +14,12 @@
         <ul>
             <!-- <li><a href="index.php">Home</a></li> -->
             <li><a href="posts.php">Posts</a></li>
-            <li><a href="addpost.php">Add a new post</a></li>
-            <li><a href="../index.php">Public Site</a></li>
+            <li><a href="users.php">Users</a></li>
+            <li><a href="modules.php">Modules</a></li>
+            <li><a href="addpost.php">Add post</a></li>
+            <li><a href="adduser.php">Add user</a></li>
+            <li><a href="addmodule.php">Add module</a></li>
+            <li><a href="login/logout.php">Public Site/Logout</a></li>
         </ul>
     </nav>
     <main>

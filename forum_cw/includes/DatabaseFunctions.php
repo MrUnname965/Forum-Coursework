@@ -17,10 +17,10 @@ function getPost($pdo, $id){
     return $query->fetch();
 }
 
-function updatePost($pdo, $id, $post_text){
-    $query = 'UPDATE post SET post_text = :post_text WHERE id = :id';
-    $paremeters = [':post_text' => $post_text, ':id' => $id];
-    query($pdo, $query, $paremeters);
+function updatePost($pdo, $id, $post_text, $userid, $moduleid, $image){
+    $query = 'UPDATE post SET post_text = :post_text, userid = :userid, moduleid = :moduleid, image = :image WHERE id = :id';
+    $parameters = [':post_text' => $post_text, ':userid' => $userid, ':moduleid' => $moduleid, ':image' => $image, ':id' => $id];
+    query($pdo, $query, $parameters);
 }
 
 function deletePost($pdo, $id){
@@ -55,5 +55,68 @@ function allPosts($pdo){
     INNER JOIN user ON userid = user.id
     INNER JOIN module ON moduleid = module.id');
     return $posts->fetchAll();
+}
+
+function insertUser($pdo, $name, $email){
+    $query = 'INSERT INTO user SET
+    name = :name,
+    email = :email';
+
+    $parameters = [':name' => $name, ':email' => $email];
+    query($pdo, $query, $parameters);
+}
+
+function insertModule($pdo, $name){
+    $query = 'INSERT INTO module SET
+    name = :name';
+
+    $parameters = [':name' => $name];
+    query($pdo, $query, $parameters);
+}
+
+function totalUsers($pdo){
+    $query = query($pdo, 'SELECT COUNT(*) FROM user');
+    $row = $query->fetch();
+    return $row[0];
+}
+
+function getUser($pdo, $id){
+    $parameters = [':id' => $id];
+    $query = query($pdo, 'SELECT * FROM user WHERE id = :id', $parameters);
+    return $query->fetch();
+}
+
+function updateUser($pdo, $id, $name, $email){
+    $query = 'UPDATE user SET name = :name, email = :email WHERE id = :id';
+    $parameters = [':name' => $name, ':email' => $email, ':id' => $id];
+    query($pdo, $query, $parameters);
+}
+
+function deleteUser($pdo, $id){
+    $parameters = [':id' => $id];
+    query($pdo, 'DELETE FROM user WHERE id = :id', $parameters);
+}
+
+function totalModules($pdo){
+    $query = query($pdo, 'SELECT COUNT(*) FROM module');
+    $row = $query->fetch();
+    return $row[0];
+}
+
+function getModule($pdo, $id){
+    $parameters = [':id' => $id];
+    $query = query($pdo, 'SELECT * FROM module WHERE id = :id', $parameters);
+    return $query->fetch();
+}
+
+function updateModule($pdo, $id, $name){
+    $query = 'UPDATE module SET name = :name WHERE id = :id';
+    $parameters = [':name' => $name, ':id' => $id];
+    query($pdo, $query, $parameters);
+}
+
+function deleteModule($pdo, $id){
+    $parameters = [':id' => $id];
+    query($pdo, 'DELETE FROM module WHERE id = :id', $parameters);
 }
 ?>
